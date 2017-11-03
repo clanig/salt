@@ -43,7 +43,7 @@ License:        Apache-2.0
 Group:          System/Management
 Url:            http://saltstack.org/
 # Git: https://github.com/openSUSE/salt.git
-Source0:        https://pypi.python.org/packages/88/3c/77de1e461882708a5a247bbc22f5b3df8a34affe69755ea9540473c9852a/salt-2016.11.4.tar.gz
+Source0:        salt-2017.7.2.tar.gz
 Source1:        README.SUSE
 Source2:        salt-tmpfiles.d
 Source3:        html.tar.bz2
