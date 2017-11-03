@@ -49,6 +49,7 @@ Source2:        salt-tmpfiles.d
 Source3:        html.tar.bz2
 Source4:        update-documentation.sh
 Source5:        travis.yml
+Source6:        zyppnotify
 
 Patch1:         do-not-allow-ids-with-null-bytes-in-decoded-payloads.patch
 Patch2:         don-t-allow-path-separators-in-minion-id.patch
@@ -392,6 +393,7 @@ Zsh command line completion support for %{name}.
 %setup -q -n salt-%{version}
 cp %{S:1} .
 cp %{S:5} ./.travis.yml
+cp %{S:6} ./zyppnotify
 # %patch1 -p1
 # %patch2 -p1
 # %patch3 -p1
@@ -456,7 +458,7 @@ install -Dd -m 0750 %{buildroot}%{_sysconfdir}/salt/pki/minion
 ## Install Zypper plugins only on SUSE machines
 %if 0%{?suse_version}
 install -Dd -m 0750 %{buildroot}%{_prefix}/lib/zypp/plugins/commit
-%{__install} _service:extract_file:zyppnotify %{buildroot}%{_prefix}/lib/zypp/plugins/commit/zyppnotify
+%{__install} zyppnotify %{buildroot}%{_prefix}/lib/zypp/plugins/commit/zyppnotify
 %endif
 
 # Install Yum plugins only on RH machines
