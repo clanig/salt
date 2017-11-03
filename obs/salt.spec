@@ -393,10 +393,10 @@ Zsh command line completion support for %{name}.
 %setup -q -n salt-%{version}
 cp %{S:1} .
 cp %{S:5} ./.travis.yml
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
+# %patch1 -p1
+# %patch2 -p1
+# %patch3 -p1
+# %patch4 -p1
 
 %build
 %{__python} setup.py --salt-transport=both build
