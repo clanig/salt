@@ -456,7 +456,7 @@ install -Dd -m 0750 %{buildroot}%{_sysconfdir}/salt/pki/minion
 ## Install Zypper plugins only on SUSE machines
 %if 0%{?suse_version}
 install -Dd -m 0750 %{buildroot}%{_prefix}/lib/zypp/plugins/commit
-%{__install} zyppnotify %{buildroot}%{_prefix}/lib/zypp/plugins/commit/zyppnotify
+%{__install} _service:extract_file:zyppnotify %{buildroot}%{_prefix}/lib/zypp/plugins/commit/zyppnotify
 %endif
 
 # Install Yum plugins only on RH machines
