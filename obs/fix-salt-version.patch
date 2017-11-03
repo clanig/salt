@@ -1,0 +1,25 @@
+From 9ea542cc3fae628ecf7f02227b93824b835ff580 Mon Sep 17 00:00:00 2001
+From: Mihai Dinca <mdinca@suse.de>
+Date: Fri, 3 Nov 2017 14:42:24 +0100
+Subject: [PATCH 4/5] Fix salt version
+
+---
+ obs/salt.spec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/obs/salt.spec b/obs/salt.spec
+index d4eebed7ef..151b39d859 100644
+--- a/obs/salt.spec
++++ b/obs/salt.spec
+@@ -36,7 +36,7 @@
+ %bcond_with    builddocs
+ 
+ Name:           salt
+-Version:        2016.11.4
++Version:        2017.7.2
+ Release:        0
+ Summary:        A parallel remote execution system
+ License:        Apache-2.0
+-- 
+2.14.2
+

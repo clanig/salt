@@ -1,3 +1,20 @@
+Fri Nov  3 12:22:08 UTC 2017 - mdinca@suse.de
+
+- Update to 2017.7.2
+
+- TODO: add
+
+- Added:
+ * do-not-allow-ids-with-null-bytes-in-decoded-payloads.patch
+ * don-t-allow-path-separators-in-minion-id.patch
+ * add-obs-folder-from-products-testing.patch
+ * fix-salt-version.patch
+
+- Renamed:
+  TODO
+
+- Removed:
+  TODO
 -------------------------------------------------------------------
 Wed Oct 11 12:47:37 UTC 2017 - jbreuer@suse.de
 

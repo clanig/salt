@@ -50,106 +50,10 @@ Source3:        html.tar.bz2
 Source4:        update-documentation.sh
 Source5:        travis.yml
 
-# PATCH-FIX-OPENSUSE use-forking-daemon.patch tserong@suse.com -- We don't have python-systemd, so notify can't work
-# We do not upstream this patch because this is something that we have to fix on our side
-Patch1:         tserong-suse.com-we-don-t-have-python-systemd-so-not.patch
-# PATCH-FIX-OPENSUSE use-salt-user-for-master.patch -- Run salt master as dedicated salt user
-# We do not upstream this patch because this is suse custom configuration
-# (see: https://trello.com/c/wh96lCD4/1528-get-rid-of-0003-check-if-byte-strings-are-properly-encoded-in-utf-8-patch-in-the-salt-package)
-Patch2:         run-salt-master-as-dedicated-salt-user.patch
-# PATCH-FIX-OPENSUSE https://github.com/saltstack/salt/pull/30424
-# We do not upstream this patch because it has been fixed upstream
-Patch3:         check-if-byte-strings-are-properly-encoded-in-utf-8.patch
-# PATCH-FIX-OPENSUSE prevent rebuilds in OBS
-# We do not upstream this patch because the issue is on our side
-Patch4:         do-not-generate-a-date-in-a-comment-to-prevent-rebui.patch
-# PATCH-FIX-OPENSUSE Generate events from the Salt minion,
-# We do not upstream this because this is for SUSE only (15.08.2016) if Zypper has been used outside the Salt infrastructure
-Patch5:         add-zypp-notify-plugin.patch
-# PATCH-FIX_OPENSUSE
-Patch6:         run-salt-api-as-user-salt-bsc-990029.patch
-# PATCH-FIX_OPENSUSE
-Patch7:         change-travis-configuration-file-to-use-salt-toaster.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/37856 (pending to include in 2016.11)
-Patch8:         setting-up-os-grains-for-sles-expanded-support-suse-.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/34165
-Patch9:         fix-salt-summary-to-count-not-responding-minions-cor.patch
-# PATCH-FIX_OPENSUSE
-Patch10:        avoid-failures-on-sles-12-sp2-because-of-new-systemd.patch
-# PATCH-FIX_OPENSUSE
-Patch11:        add-yum-plugin.patch
-# PATCH-FIX_OPENSUSE
-Patch12:        add-ssh-option-to-salt-ssh.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/38806
-Patch13:        add-a-salt-minion-service-control-file.patch
-# Description N/A
-Patch14:        add-options-for-dockerng.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/39762
-Patch15:        fix-regression-in-file.get_managed-add-unit-tests.patch
-# PATCH-FIX_OPENSUSE
-Patch16:        translate-variable-arguments-if-they-contain-hidden-.patch
-# PATCH-FIX_OPENSUSE
-Patch17:        special-salt-minion.service-file-for-rhel7.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/40266
-Patch18:        adding-support-for-installing-patches-in-yum-dnf-exe.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/40761
-Patch19:        search-the-entire-cache_dir-because-storage-paths-ch.patch
-# PATCH-FIX_OPENSUSE
-Patch20:        fixing-beacons.list-integration-test-failure.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/40817
-Patch21:        add-unit-test-for-skip-false-values-from-preferred_i.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/40852
-Patch22:        use-correct-grain-constants-for-timezone.patch
-# PATCH-FIX_OPENSUSE (upstream coming soon)
-Patch23:        fix-grain-for-os_family-on-suse-series.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/41269
-Patch24:        bugfix-unable-to-use-127-as-hostname.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/41336
-Patch25:        fix-setting-language-on-suse-systems.patch
-Patch26:        fix-os_family-case-in-unittest.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/41235
-Patch27:        rest_cherrypy-remove-sleep-call.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/40905
-Patch28:        fixed-issue-with-parsing-of-master-minion-returns-wh.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/41533
-Patch29:        clean-up-change-attribute-from-interface-dict.patch
-# PATCH-FIX_OPENSUSE
-Patch30:        fix-format-error-bsc-1043111.patch
-# PATCH-FIX_OPENSUSE (only applied for RHEL6 and SLES11)
-Patch31:        adding-salt-minion-watchdog-for-sysv-systems-rhel6-a.patch
-# PATCH-FIX_OPENSUSE (only applied for RHEL6 and SLES11)
-Patch32:        enables-salt-minion-watchdog-on-init.d-script-for-sy.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/42339
-Patch33:        bugfix-jobs-scheduled-to-run-at-a-future-time-stay-p.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/42944
-Patch34:        add-clean_id-function-to-salt.utils.verify.py.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/42986
-Patch35:        notify-systemd-synchronously-bsc-1053376.patch
-# PATCH-FIX_OPENSUSE https://github.com/openSUSE/salt/pull/37
-Patch36:        revert-we-don-t-have-python-systemd-so-notify-can-t-.patch
-# PATCH-FIX_OPENSUSE https://bugzilla.suse.com/1051948
-Patch37:        introducing-the-kubernetes-module.patch
-# PATCH-FIX_OPENSUSE https://bugzilla.suse.com/1052264
-Patch38:        list_pkgs-add-parameter-for-returned-attribute-selec.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/43441
-Patch39:        use-home-to-get-the-user-home-directory-instead-usin.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/43366
-#                    https://github.com/saltstack/salt/pull/43646/
-Patch40:        catching-error-when-pidfile-cannot-be-deleted.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/43235
-#                    https://github.com/saltstack/salt/pull/43724/
-Patch41:        fix-for-delete_deployment-in-kubernetes-module.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/43663
-Patch42:        multiprocessing-minion-option-documentation-fixes.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/43669
-Patch43:        introduce-process_count_max-minion-configuration-par.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/commit/0976f8f7131975a1ae29b2724069a301a870a46d
-#                    Missed follow-up commit
-Patch44:        escape-the-os.sep.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/44005
-Patch45:        bugfix-always-return-a-string-list-on-unknown-job-ta.patch
-# PATCH-FIX_UPSTREAM https://github.com/saltstack/salt/pull/44011
-Patch46:        security-fixes-cve-2017-14695-and-cve-2017-14696.patch
+Patch1:         do-not-allow-ids-with-null-bytes-in-decoded-payloads.patch
+Patch2:         don-t-allow-path-separators-in-minion-id.patch
+Patch3:         add-obs-folder-from-products-testing.patch
+Patch4:         fix-salt-version.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  logrotate
@@ -490,64 +394,9 @@ Zsh command line completion support for %{name}.
 cp %{S:1} .
 cp %{S:5} ./.travis.yml
 %patch1 -p1
-
-# Do not apply this patch on RHEL 6
-%if 0%{?rhel} > 6 || 0%{?suse_version}
 %patch2 -p1
-%endif
-
 %patch3 -p1
 %patch4 -p1
-
-# This is SUSE-only patch
-%if 0%{?suse_version}
-%patch5 -p1
-%endif
-
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
-%patch14 -p1
-%patch15 -p1
-%patch16 -p1
-%patch17 -p1
-%patch18 -p1
-%patch19 -p1
-%patch20 -p1
-%patch21 -p1
-%patch22 -p1
-%patch23 -p1
-%patch24 -p1
-%patch25 -p1
-%patch26 -p1
-%patch27 -p1
-%patch28 -p1
-%patch29 -p1
-%patch30 -p1
-
-%if 0%{?rhel} == 6 || 0%{?suse_version} == 1110
-%patch31 -p1
-%patch32 -p1
-%endif 
-%patch33 -p1
-%patch34 -p1
-%patch35 -p1
-%patch36 -p1
-%patch37 -p1
-%patch38 -p1
-%patch39 -p1
-%patch40 -p1
-%patch41 -p1
-%patch42 -p1
-%patch43 -p1
-%patch44 -p1
-%patch45 -p1
-%patch46 -p1
 
 %build
 %{__python} setup.py --salt-transport=both build
