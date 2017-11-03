@@ -53,7 +53,6 @@ Source5:        travis.yml
 Patch1:         do-not-allow-ids-with-null-bytes-in-decoded-payloads.patch
 Patch2:         don-t-allow-path-separators-in-minion-id.patch
 Patch3:         fix-salt-version.patch
-Patch4:         add-zypp-notify-plugin.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  logrotate
@@ -396,7 +395,6 @@ cp %{S:5} ./.travis.yml
 # %patch1 -p1
 # %patch2 -p1
 # %patch3 -p1
-%patch4 -p1
 
 %build
 %{__python} setup.py --salt-transport=both build
@@ -458,7 +456,7 @@ install -Dd -m 0750 %{buildroot}%{_sysconfdir}/salt/pki/minion
 ## Install Zypper plugins only on SUSE machines
 %if 0%{?suse_version}
 install -Dd -m 0750 %{buildroot}%{_prefix}/lib/zypp/plugins/commit
-%{__install} scripts/zypper/plugins/commit/zyppnotify %{buildroot}%{_prefix}/lib/zypp/plugins/commit/zyppnotify
+%{__install} scripts/suse/zypper/plugins/commit/zyppnotify %{buildroot}%{_prefix}/lib/zypp/plugins/commit/zyppnotify
 %endif
 
 # Install Yum plugins only on RH machines
