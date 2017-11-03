@@ -52,8 +52,8 @@ Source5:        travis.yml
 
 Patch1:         do-not-allow-ids-with-null-bytes-in-decoded-payloads.patch
 Patch2:         don-t-allow-path-separators-in-minion-id.patch
-Patch3:         add-obs-folder-from-products-testing.patch
-Patch4:         fix-salt-version.patch
+Patch3:         fix-salt-version.patch
+Patch4:         add-zypp-notify-plugin.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  logrotate
@@ -396,7 +396,7 @@ cp %{S:5} ./.travis.yml
 # %patch1 -p1
 # %patch2 -p1
 # %patch3 -p1
-# %patch4 -p1
+%patch4 -p1
 
 %build
 %{__python} setup.py --salt-transport=both build
