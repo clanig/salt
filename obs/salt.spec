@@ -53,7 +53,6 @@ Source6:        zyppnotify
 
 Patch1:         do-not-allow-ids-with-null-bytes-in-decoded-payloads.patch
 Patch2:         don-t-allow-path-separators-in-minion-id.patch
-Patch3:         fix-salt-version.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  logrotate
@@ -396,7 +395,6 @@ cp %{S:5} ./.travis.yml
 cp %{S:6} ./zyppnotify
 # %patch1 -p1
 # %patch2 -p1
-# %patch3 -p1
 
 %build
 %{__python} setup.py --salt-transport=both build
