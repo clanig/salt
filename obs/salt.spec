@@ -124,12 +124,12 @@ Requires:  yum-plugin-security
 Requires:  python3-Jinja2
 %endif
 Requires:       python3-futures >= 2.0
-Requires:       python3-markupsafe
+Requires:       python3-MarkupSafe
 Requires:       python3-msgpack-python > 0.3
 Requires:       python3-psutil
 Requires:       python3-requests >= 1.0.0
 Requires:       python3-tornado >= 4.2.1
-Requires:       python3-yaml
+Requires:       python3-PyYAML
 %if 0%{?suse_version}
 # required for zypper.py
 Requires:       rpm-python
