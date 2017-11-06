@@ -65,7 +65,7 @@ BuildRequires:  python3-jinja2
 BuildRequires:  python3-Jinja2
 %endif
 BuildRequires:  python3-futures >= 2.0
-BuildRequires:  python3-markupsafe
+BuildRequires:  python3-MarkupSafe
 BuildRequires:  python3-msgpack-python > 0.3
 BuildRequires:  python3-psutil
 BuildRequires:  python3-requests >= 1.0.0
