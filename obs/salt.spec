@@ -70,7 +70,7 @@ BuildRequires:  python3-msgpack-python > 0.3
 BuildRequires:  python3-psutil
 BuildRequires:  python3-requests >= 1.0.0
 BuildRequires:  python3-tornado >= 4.2.1
-BuildRequires:  python3-yaml
+BuildRequires:  python3-PyYAML
 
 # requirements/zeromq.txt
 BuildRequires:  python3-pycrypto >= 2.6.1
