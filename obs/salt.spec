@@ -21,7 +21,7 @@
 %else
 %bcond_with    systemd
 %endif
-%{!?python_sitelib: %global python_sitelib %(python3 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+%{!?python3_sitelib: %global python3_sitelib %(python3 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 %if 0%{?suse_version} > 1110
 %bcond_without bash_completion
 %bcond_without fish_completion
@@ -56,37 +56,37 @@ Patch2:         don-t-allow-path-separators-in-minion-id.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  logrotate
-BuildRequires:  python
-BuildRequires:  python-devel
+BuildRequires:  python3
+BuildRequires:  python3-devel
 # requirements/base.txt
 %if 0%{?rhel}
-BuildRequires:  python-jinja2
+BuildRequires:  python3-jinja2
 %else
-BuildRequires:  python-Jinja2
+BuildRequires:  python3-Jinja2
 %endif
-BuildRequires:  python-futures >= 2.0
-BuildRequires:  python-markupsafe
-BuildRequires:  python-msgpack-python > 0.3
-BuildRequires:  python-psutil
-BuildRequires:  python-requests >= 1.0.0
-BuildRequires:  python-tornado >= 4.2.1
-BuildRequires:  python-yaml
+BuildRequires:  python3-futures >= 2.0
+BuildRequires:  python3-markupsafe
+BuildRequires:  python3-msgpack-python > 0.3
+BuildRequires:  python3-psutil
+BuildRequires:  python3-requests >= 1.0.0
+BuildRequires:  python3-tornado >= 4.2.1
+BuildRequires:  python3-yaml
 
 # requirements/zeromq.txt
-BuildRequires:  python-pycrypto >= 2.6.1
-BuildRequires:  python-pyzmq >= 2.2.0
+BuildRequires:  python3-pycrypto >= 2.6.1
+BuildRequires:  python3-pyzmq >= 2.2.0
 %if %{with test}
 # requirements/dev_python27.txt
-BuildRequires:  python-boto >= 2.32.1
-BuildRequires:  python-mock
-BuildRequires:  python-moto >= 0.3.6
-BuildRequires:  python-pip
-BuildRequires:  python-salt-testing >= 2015.2.16
-BuildRequires:  python-unittest2
-BuildRequires:  python-xml
+BuildRequires:  python3-boto >= 2.32.1
+BuildRequires:  python3-mock
+BuildRequires:  python3-moto >= 0.3.6
+BuildRequires:  python3-pip
+BuildRequires:  python3-salt-testing >= 2015.2.16
+BuildRequires:  python3-unittest2
+BuildRequires:  python3-xml
 %endif
 %if %{with builddocs}
-BuildRequires:  python-sphinx
+BuildRequires:  python3-sphinx
 %endif
 %if 0%{?suse_version} > 1020
 BuildRequires:  fdupes
@@ -108,28 +108,28 @@ Requires(pre):  dbus
 
 Requires:       procps
 Requires:       logrotate
-Requires:       python
+Requires:       python3
 #
 %if ! 0%{?suse_version} > 1110
-Requires:       python-certifi
+Requires:       python3-certifi
 %endif
 # requirements/base.txt
 %if 0%{?rhel}
-Requires:  python-jinja2
+Requires:  python3-jinja2
 Requires:  yum
 %if 0%{?rhel} == 6
 Requires:  yum-plugin-security
 %endif
 %else
-Requires:  python-Jinja2
+Requires:  python3-Jinja2
 %endif
-Requires:       python-futures >= 2.0
-Requires:       python-markupsafe
-Requires:       python-msgpack-python > 0.3
-Requires:       python-psutil
-Requires:       python-requests >= 1.0.0
-Requires:       python-tornado >= 4.2.1
-Requires:       python-yaml
+Requires:       python3-futures >= 2.0
+Requires:       python3-markupsafe
+Requires:       python3-msgpack-python > 0.3
+Requires:       python3-psutil
+Requires:       python3-requests >= 1.0.0
+Requires:       python3-tornado >= 4.2.1
+Requires:       python3-yaml
 %if 0%{?suse_version}
 # required for zypper.py
 Requires:       rpm-python
@@ -137,18 +137,18 @@ Requires(pre):  libzypp(plugin:system) >= 0
 Requires:       zypp-plugin-python
 # requirements/opt.txt (not all)
 # Suggests:     python-MySQL-python  ## Disabled for now, originally Recommended
-Suggests:       python-timelib
-Suggests:       python-gnupg
+Suggests:       python3-timelib
+Suggests:       python3-gnupg
 # requirements/zeromq.txt
 %endif
-Requires:       python-pycrypto >= 2.6.1
-Requires:       python-pyzmq >= 2.2.0
+Requires:       python3-pycrypto >= 2.6.1
+Requires:       python3-pyzmq >= 2.2.0
 #
 %if 0%{?suse_version}
 # python-xml is part of python-base in all rhel versions
-Requires:       python-xml
-Suggests:       python-Mako
-Recommends:     python-netaddr
+Requires:       python3-xml
+Suggests:       python3-Mako
+Recommends:     python3-netaddr
 %endif
 
 %if %{with systemd}
@@ -194,7 +194,7 @@ Summary:        The api for Salt a parallel remote execution system
 Group:          System/Management
 Requires:       %{name} = %{version}-%{release}
 Requires:       %{name}-master = %{version}-%{release}
-Requires:       python-CherryPy >= 3.2.2
+Requires:       python3-CherryPy >= 3.2.2
 
 %description api
 salt-api is a modular interface on top of Salt that can provide a variety of entry points into a running Salt system.
@@ -204,10 +204,10 @@ Summary:        Generic cloud provisioning tool for Saltstack
 Group:          System/Management
 Requires:       %{name} = %{version}-%{release}
 Requires:       %{name}-master = %{version}-%{release}
-Requires:       python-apache-libcloud
+Requires:       python3-apache-libcloud
 %if 0%{?suse_version}
-Recommends:     python-botocore
-Recommends:     python-netaddr
+Recommends:     python3-botocore
+Recommends:     python3-netaddr
 %endif
 
 %description cloud
@@ -230,7 +230,7 @@ Summary:        The management component of Saltstack with zmq protocol supporte
 Group:          System/Management
 Requires:       %{name} = %{version}-%{release}
 %if 0%{?suse_version}
-Recommends:     python-pygit2 >= 0.20.3
+Recommends:     python3-pygit2 >= 0.20.3
 %endif
 %ifarch %{ix86} x86_64
 %if 0%{?suse_version}
@@ -397,7 +397,7 @@ cp %{S:6} ./zyppnotify
 # %patch2 -p1
 
 %build
-%{__python} setup.py --salt-transport=both build
+%{__python3} setup.py --salt-transport=both build
 
 %if %{with docs} && %{without builddocs}
 # extract docs from the tarball
@@ -413,7 +413,7 @@ cd doc && make html && rm _build/html/.buildinfo && rm _build/html/_images/proxy
 %endif
 
 %install
-%{__python} setup.py --salt-transport=both install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3} setup.py --salt-transport=both install --prefix=%{_prefix} --root=%{buildroot}
 ## create missing directories
 install -Dd -m 0750 %{buildroot}%{_sysconfdir}/salt/master.d
 install -Dd -m 0750 %{buildroot}%{_sysconfdir}/salt/minion.d
@@ -532,12 +532,12 @@ install -Dpm 0644 pkg/fish-completions/* %{buildroot}%{fish_completions_dir}
 
 %if 0%{?suse_version} > 1020
 %fdupes %{buildroot}%{_docdir}
-%fdupes %{buildroot}%{python_sitelib}
+%fdupes %{buildroot}%{python3_sitelib}
 %endif
 
 %check
 %if %{with test}
-python setup.py test --runtests-opts=-u
+python3 setup.py test --runtests-opts=-u
 %endif
 
 %pre
@@ -861,8 +861,8 @@ fi
 %config(noreplace) %attr(0640, root, salt) %{_sysconfdir}/salt/cloud.profiles
 %config(noreplace) %attr(0640, root, salt) %{_sysconfdir}/salt/cloud.providers
 %dir               %attr(0750, root, salt) %{_localstatedir}/cache/salt/cloud
-%{python_sitelib}/salt/cloud/deploy/bootstrap-salt.sh
-%attr(755,root,root)%{python_sitelib}/salt/cloud/deploy/bootstrap-salt.sh
+%{python3_sitelib}/salt/cloud/deploy/bootstrap-salt.sh
+%attr(755,root,root)%{python3_sitelib}/salt/cloud/deploy/bootstrap-salt.sh
 %{_mandir}/man1/salt-cloud.1.*
 
 %files ssh
@@ -973,9 +973,9 @@ fi
 %{_mandir}/man1/salt-call.1.gz
 %{_mandir}/man1/spm.1.gz
 %config(noreplace) %{_sysconfdir}/logrotate.d/salt
-%{python_sitelib}/*
-%exclude %{python_sitelib}/salt/cloud/deploy/*.sh
-%attr(755,root,root)%{python_sitelib}/salt/cloud/deploy/*.sh
+%{python3_sitelib}/*
+%exclude %{python3_sitelib}/salt/cloud/deploy/*.sh
+%attr(755,root,root)%{python3_sitelib}/salt/cloud/deploy/*.sh
 %doc LICENSE AUTHORS README.rst HACKING.rst README.SUSE
 #
 %dir        %attr(0750, root, salt) %{_sysconfdir}/salt
