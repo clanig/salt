@@ -21,7 +21,7 @@
 %else
 %bcond_with    systemd
 %endif
-%{!?python_sitelib: %global python_sitelib %(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+%{!?python_sitelib: %global python_sitelib %(python3 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 %if 0%{?suse_version} > 1110
 %bcond_without bash_completion
 %bcond_without fish_completion
