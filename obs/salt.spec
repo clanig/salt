@@ -55,6 +55,7 @@ Patch1:         do-not-allow-ids-with-null-bytes-in-decoded-payloads.patch
 Patch2:         don-t-allow-path-separators-in-minion-id.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+BuildRequires:  python-rpm-macros
 BuildRequires:  logrotate
 BuildRequires:  python3
 BuildRequires:  python3-devel
