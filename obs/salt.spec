@@ -139,7 +139,7 @@ Requires:       python3-PyYAML
 # required for zypper.py
 Requires:       rpm-python
 Requires(pre):  libzypp(plugin:system) >= 0
-Requires:       zypp-plugin-python
+Requires:       python3-zypp-plugin
 # requirements/opt.txt (not all)
 # Suggests:     python-MySQL-python  ## Disabled for now, originally Recommended
 Suggests:       python3-timelib
