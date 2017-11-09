@@ -137,7 +137,7 @@ Requires:       python3-tornado >= 4.2.1
 Requires:       python3-PyYAML
 %if 0%{?suse_version}
 # required for zypper.py
-Requires:       rpm-python
+Requires:       python3-rpm
 Requires(pre):  libzypp(plugin:system) >= 0
 Requires:       python3-zypp-plugin
 # requirements/opt.txt (not all)
