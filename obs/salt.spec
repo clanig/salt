@@ -69,7 +69,6 @@ BuildRequires:  python3-jinja2
 %else
 BuildRequires:  python3-Jinja2
 %endif
-BuildRequires:  python3-futures >= 2.0
 BuildRequires:  python3-MarkupSafe
 BuildRequires:  python3-msgpack-python > 0.3
 BuildRequires:  python3-psutil
@@ -128,7 +127,6 @@ Requires:  yum-plugin-security
 %else
 Requires:  python3-Jinja2
 %endif
-Requires:       python3-futures >= 2.0
 Requires:       python3-MarkupSafe
 Requires:       python3-msgpack-python > 0.3
 Requires:       python3-psutil
